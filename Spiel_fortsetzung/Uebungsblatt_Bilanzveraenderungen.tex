@@ -1,0 +1,288 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\geometry{a4paper, margin=2.5cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Übungsblatt: Bilanzveränderungen}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+
+\definecolor{maincolor}{RGB}{102, 126, 234}
+\definecolor{lightgray}{RGB}{248, 249, 250}
+
+\title{\textbf{\huge Übungsblatt: Bilanzveränderungen}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\noindent
+\textbf{Name:} \rule{5cm}{0.4pt} \hfill \textbf{Datum:} \rule{3cm}{0.4pt}
+
+\vspace{0.5cm}
+
+\section*{🎯 Lernziele}
+Nach diesem Übungsblatt kannst du:
+\begin{itemize}[leftmargin=*]
+    \item[$\checkmark$] Die 4 Arten von Bilanzveränderungen sicher erkennen
+    \item[$\checkmark$] Geschäftsvorfälle richtig einordnen
+    \item[$\checkmark$] Auswirkungen auf Aktiva und Passiva bestimmen
+    \item[$\checkmark$] Bilanzsummen korrekt berechnen
+\end{itemize}
+
+\section*{Aufgabe 1: Wiederholung - Die 4 Bilanzveränderungen}
+
+Erkläre kurz, was bei den folgenden Bilanzveränderungen passiert und gib ein Beispiel:
+
+\vspace{0.3cm}
+
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Aktiv-Tausch} & \vspace{1cm} \\
+\hline
+\textbf{Passiv-Tausch} & \vspace{1cm} \\
+\hline
+\textbf{Bilanzverlängerung} & \vspace{1cm} \\
+\hline
+\textbf{Bilanzverkürzung} & \vspace{1cm} \\
+\hline
+\end{tabularx}
+
+\section*{Aufgabe 2: Geschäftsvorfälle zuordnen}
+
+Ordne die folgenden Geschäftsvorfälle der richtigen Bilanzveränderung zu!
+
+\textbf{A} = Aktiv-Tausch \quad | \quad \textbf{P} = Passiv-Tausch \quad | \quad \textbf{V} = Bilanzverlängerung \quad | \quad \textbf{K} = Bilanzverkürzung
+
+\vspace{0.3cm}
+
+\begin{tabularx}{\textwidth}{|c|X|c|}
+\hline
+\textbf{Nr.} & \textbf{Geschäftsvorfall} & \textbf{Bilanzveränderung} \\
+\hline
+1 & Ein Unternehmen kauft einen Computer für 1.200 € und zahlt bar. & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+2 & Ein Lieferant wird per Banküberweisung bezahlt (800 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+3 & Das Unternehmen nimmt einen Kredit über 15.000 € auf. Das Geld wird auf das Bankkonto überwiesen. & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+4 & Büromaterial wird auf Rechnung gekauft (300 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+5 & Ein Kunde zahlt seine offene Rechnung (2.500 €) per Überweisung. & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+6 & Das Unternehmen tilgt einen Teil des Kredits (5.000 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+7 & Ein langfristiger Kredit wird in kurzfristige Verbindlichkeiten umgewandelt (10.000 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+8 & Waren werden auf Rechnung eingekauft (4.500 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+9 & Der Inhaber zahlt Geld aus der Kasse auf das Bankkonto ein (1.000 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+10 & Ein Darlehen wird durch Eigenkapital ersetzt (20.000 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+11 & Ware wird verkauft und der Kunde zahlt bar (600 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+12 & Ein Fahrzeug wird gekauft und per Kredit finanziert (25.000 €). & $\square$ A  $\square$ P  $\square$ V  $\square$ K \\
+\hline
+\end{tabularx}
+
+\newpage
+
+\section*{Aufgabe 3: Bilanzveränderungen berechnen}
+
+\textbf{Ausgangsbilanz der Firma ``TechStart GmbH'':}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|l|r||l|r|}
+\hline
+\textbf{AKTIVA} & \textbf{€} & \textbf{PASSIVA} & \textbf{€} \\
+\hline
+Maschinen & 30.000 & Eigenkapital & 50.000 \\
+Waren & 15.000 & Bankkredit & 20.000 \\
+Forderungen & 10.000 & Verbindlichkeiten & 5.000 \\
+Bank & 20.000 & & \\
+\hline
+\textbf{Summe} & \textbf{75.000} & \textbf{Summe} & \textbf{75.000} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\subsection*{Führe die folgenden Geschäftsvorfälle durch:}
+
+\begin{enumerate}
+\item \textbf{GV 1:} Waren kaufen (8.000 €, auf Rechnung) \quad $\rightarrow$ \rule{4cm}{0.4pt} \quad Bilanzsumme: \rule{2.5cm}{0.4pt}
+\item \textbf{GV 2:} Kunde zahlt Rechnung (3.000 €, per Bank) \quad $\rightarrow$ \rule{4cm}{0.4pt} \quad Bilanzsumme: \rule{2.5cm}{0.4pt}
+\item \textbf{GV 3:} Verbindlichkeiten zahlen (2.000 €, per Bank) \quad $\rightarrow$ \rule{4cm}{0.4pt} \quad Bilanzsumme: \rule{2.5cm}{0.4pt}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsection*{Erstelle die Endbilanz nach allen drei Geschäftsvorfällen:}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|l|r||l|r|}
+\hline
+\textbf{AKTIVA} & \textbf{€} & \textbf{PASSIVA} & \textbf{€} \\
+\hline
+Maschinen & \rule{2cm}{0.4pt} & Eigenkapital & \rule{2cm}{0.4pt} \\
+Waren & \rule{2cm}{0.4pt} & Bankkredit & \rule{2cm}{0.4pt} \\
+Forderungen & \rule{2cm}{0.4pt} & Verbindlichkeiten & \rule{2cm}{0.4pt} \\
+Bank & \rule{2cm}{0.4pt} & & \\
+\hline
+\textbf{Summe} & \rule{2cm}{0.4pt} & \textbf{Summe} & \rule{2cm}{0.4pt} \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section*{Aufgabe 4: Fehler finden}
+
+Folgende Geschäftsvorfälle wurden \textbf{falsch} zugeordnet. Finde die Fehler und korrigiere sie!
+
+\vspace{0.3cm}
+
+\begin{tabularx}{\textwidth}{|c|X|c|X|}
+\hline
+\textbf{Nr.} & \textbf{Geschäftsvorfall} & \textbf{Falsche Zuordnung} & \textbf{Richtige Bilanzveränderung} \\
+\hline
+1 & Kauf von Rohstoffen auf Rechnung & Aktiv-Tausch & \rule{3cm}{0.4pt} \\
+\hline
+2 & Kunde zahlt per Überweisung & Bilanzverlängerung & \rule{3cm}{0.4pt} \\
+\hline
+3 & Tilgung eines Kredits per Bank & Aktiv-Tausch & \rule{3cm}{0.4pt} \\
+\hline
+4 & Umwandlung von langfristigem in kurzfristigen Kredit & Bilanzverlängerung & \rule{3cm}{0.4pt} \\
+\hline
+5 & Kauf eines Computers per Banküberweisung & Bilanzverlängerung & \rule{3cm}{0.4pt} \\
+\hline
+\end{tabularx}
+
+\section*{Aufgabe 5: Praxisfall - Möbelhaus Müller}
+
+Das Möbelhaus Müller hat folgende Bilanz:
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|l|r||l|r|}
+\hline
+\textbf{AKTIVA} & \textbf{€} & \textbf{PASSIVA} & \textbf{€} \\
+\hline
+Ladeneinrichtung & 40.000 & Eigenkapital & 60.000 \\
+Waren & 25.000 & Bankkredit & 30.000 \\
+Bank & 25.000 & Verbindlichkeiten & 10.000 \\
+Kasse & 10.000 & & \\
+\hline
+\textbf{Summe} & \textbf{100.000} & \textbf{Summe} & \textbf{100.000} \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Am Montag passieren folgende Geschäftsvorfälle:}
+
+\begin{enumerate}[label=\alph*)]
+\item Möbel kaufen (12.000 €, auf Rechnung) \quad $\rightarrow$ \rule{3.5cm}{0.4pt} \quad Waren: \rule{2cm}{0.4pt} € \quad Verb.: \rule{2cm}{0.4pt} € \quad BS: \rule{2cm}{0.4pt} €
+
+\item Sofa verkaufen (3.500 €, bar) \quad $\rightarrow$ \rule{3.5cm}{0.4pt} \quad Kasse: \rule{2cm}{0.4pt} € \quad Waren: \rule{2cm}{0.4pt} € \quad BS: \rule{2cm}{0.4pt} €
+
+\item Lieferant bezahlen (5.000 €, per Bank) \quad $\rightarrow$ \rule{3.5cm}{0.4pt} \quad Bank: \rule{2cm}{0.4pt} € \quad Verb.: \rule{2cm}{0.4pt} € \quad BS: \rule{2cm}{0.4pt} €
+
+\item Kasse auf Bank einzahlen (2.000 €) \quad $\rightarrow$ \rule{3.5cm}{0.4pt} \quad Kasse: \rule{2cm}{0.4pt} € \quad Bank: \rule{2cm}{0.4pt} € \quad BS: \rule{2cm}{0.4pt} €
+\end{enumerate}
+
+\subsection*{Erstelle die Endbilanz nach allen Geschäftsvorfällen:}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|l|r||l|r|}
+\hline
+\textbf{AKTIVA} & \textbf{€} & \textbf{PASSIVA} & \textbf{€} \\
+\hline
+Ladeneinrichtung & \rule{2cm}{0.4pt} & Eigenkapital & \rule{2cm}{0.4pt} \\
+Waren & \rule{2cm}{0.4pt} & Bankkredit & \rule{2cm}{0.4pt} \\
+Bank & \rule{2cm}{0.4pt} & Verbindlichkeiten & \rule{2cm}{0.4pt} \\
+Kasse & \rule{2cm}{0.4pt} & & \\
+\hline
+\textbf{Summe} & \rule{2cm}{0.4pt} & \textbf{Summe} & \rule{2cm}{0.4pt} \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Aufgabe 6: Kreatives Denken}
+
+Erfinde \textbf{eigene Geschäftsvorfälle} für ein fiktives Unternehmen deiner Wahl:
+
+\vspace{0.3cm}
+
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Aktiv-Tausch} & \vspace{0.8cm} \\
+\hline
+\textbf{Passiv-Tausch} & \vspace{0.8cm} \\
+\hline
+\textbf{Bilanzverlängerung} & \vspace{0.8cm} \\
+\hline
+\textbf{Bilanzverkürzung} & \vspace{0.8cm} \\
+\hline
+\end{tabularx}
+
+\section*{Bonusaufgabe: Expertenaufgabe}
+
+Ein Unternehmen hat eine Bilanzsumme von 250.000 €. Nach mehreren Geschäftsvorfällen beträgt die Bilanzsumme nun 275.000 €.
+
+\textbf{Frage:} Welche Arten von Bilanzveränderungen \textbf{können} stattgefunden haben? (Mehrere Antworten möglich)
+
+$\square$ Nur Bilanzverlängerungen \quad
+$\square$ Nur Bilanzverkürzungen \quad
+$\square$ Bilanzverlängerungen und -verkürzungen (Verlängerungen überwiegen)
+
+$\square$ Aktiv-Tausch und Passiv-Tausch \quad
+$\square$ Alle 4 Arten von Bilanzveränderungen
+
+\textbf{Begründung:} \rule{12cm}{0.4pt}
+
+\vspace{1cm}
+
+\section*{Tipps}
+
+\textbf{1)} Achte auf Wörter wie ``bar'', ``auf Rechnung'', ``per Überweisung'' \quad
+\textbf{2)} Nutze die App ``Lenas Café'' zur Visualisierung \quad
+\textbf{3)} Die Bilanzsumme muss auf beiden Seiten immer gleich sein!
+
+\vspace{1cm}
+
+\noindent
+\textbf{Abgabe bis:} \rule{5cm}{0.4pt}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\Large Viel Erfolg! ✍}
+\end{center}
+
+\end{document}

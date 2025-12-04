@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabenblatt: Bilanzveränderungen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+        }
+        
+        .header-info input {
+            border: none;
+            border-bottom: 2px solid #3b82f6;
+            background: transparent;
+            padding: 0.25rem;
+            font-size: 1rem;
+            width: 200px;
+        }
+        
+        .hinweis {
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #f59e0b;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .aufgabe {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 2px solid #e5e7eb;
+        }
+        
+        th {
+            background: #3b82f6;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .legende {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .freitext {
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.25rem;
+            margin: 0.5rem 0;
+            font-family: inherit;
+        }
+        
+        .bilanz-table th {
+            text-align: center;
+        }
+        
+        .bilanz-table td {
+            text-align: right;
+        }
+        
+        .bilanz-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .summe-row {
+            font-weight: bold;
+            background: #dbeafe !important;
+        }
+        
+        .aktiva-header {
+            background: #3b82f6 !important;
+        }
+        
+        .passiva-header {
+            background: #a855f7 !important;
+        }
+        
+        .textarea-large {
+            width: 100%;
+            min-height: 150px;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .bewertung {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #f0f9ff;
+            border-radius: 0.75rem;
+            border: 2px solid #0ea5e9;
+        }
+        
+        .bewertung-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .bewertung-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .bewertung-item label {
+            font-weight: bold;
+        }
+        
+        .bewertung-item input {
+            border: 2px solid #0ea5e9;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            width: 80px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            input, textarea {
+                border-color: #000 !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 0.5rem;
+            }
+            
+            .bewertung-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aufgabenblatt: Bilanzveränderungen</h1>
+        <p style="text-align: center; color: #6b7280; margin-bottom: 2rem;">Berufsschule – Rechnungswesen</p>
+        
+        <div class="header-info">
+            <div>
+                <label><strong>Name:</strong></label>
+                <input type="text" placeholder="Dein Name">
+            </div>
+            <div>
+                <label><strong>Datum:</strong></label>
+                <input type="date">
+            </div>
+        </div>
+        
+        <div class="hinweis">
+            <strong>💡 Hinweis:</strong> Nutze das interaktive Lernspiel, um die Geschäftsvorfälle zu visualisieren und zu verstehen!
+        </div>
+        
+        <!-- Aufgabe 1 -->
+        <h2>Aufgabe 1: Bilanzveränderungen erkennen (16 Punkte)</h2>
+        
+        <div class="aufgabe">
+            <p><strong>Bestimme für jeden Geschäftsvorfall die Art der Bilanzveränderung und kreuze an:</strong></p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50%;">Geschäftsvorfall</th>
+                        <th style="width: 12.5%;">AT</th>
+                        <th style="width: 12.5%;">PT</th>
+                        <th style="width: 12.5%;">BV</th>
+                        <th style="width: 12.5%;">BK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Kauf einer Maschine für 50.000 € bar</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>2. Kunde zahlt Rechnung über 20.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>3. Geldabhebung von Bank: 10.000 € auf Kasse</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>4. Jahresüberschuss 30.000 € in Gewinnrücklage</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>5. Wareneinkauf auf Rechnung: 40.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>6. Kredittilgung bar: 30.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>7. Lieferantenverb. durch Bankkredit ablösen: 25.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>8. Gesellschafter zahlt Stammkapital ein: 50.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>9. Lieferantenrechnung bar bezahlen: 25.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>10. Bankkredit umschulden: 15.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>11. Maschinenkauf mit Kredit: 60.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>12. Privatentnahme: 10.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>13. Kauf von Vorräten bar: 15.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>14. Rücklage in Stammkapital: 10.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>15. Kauf Geschäftsausstattung auf Kredit: 20.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>16. Vorräte verkaufen und Kredit tilgen: 15.000 €</td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                        <td style="text-align: center;"><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="legende">Legende: AT = Aktiv-Tausch, PT = Passiv-Tausch, BV = Bilanzverlängerung, BK = Bilanzverkürzung</p>
+        </div>
+        
+        <!-- Aufgabe 2 -->
+        <h2>Aufgabe 2: Bilanzposten zuordnen (8 Punkte)</h2>
+        
+        <div class="aufgabe">
+            <p><strong>Ordne die folgenden Geschäftsvorfälle den betroffenen Bilanzposten zu und gib an, ob diese steigen (+) oder sinken (-):</strong></p>
+            
+            <h3>a) Maschinenkauf für 50.000 € in bar</h3>
+            <p>Betroffene Posten (Aktiva):</p>
+            <p>1. <input type="text" class="freitext" placeholder="Posten 1"> Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            <p>2. <input type="text" class="freitext" placeholder="Posten 2"> Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            
+            <h3>b) Wareneinkauf auf Rechnung: 40.000 €</h3>
+            <p>Betroffene Posten:</p>
+            <p>1. <input type="text" class="freitext" placeholder="Posten 1"> (A/P) Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            <p>2. <input type="text" class="freitext" placeholder="Posten 2"> (A/P) Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            
+            <h3>c) Kredittilgung bar: 30.000 €</h3>
+            <p>Betroffene Posten:</p>
+            <p>1. <input type="text" class="freitext" placeholder="Posten 1"> (A/P) Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            <p>2. <input type="text" class="freitext" placeholder="Posten 2"> (A/P) Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            
+            <h3>d) Jahresüberschuss 30.000 € in Gewinnrücklage einstellen</h3>
+            <p>Betroffene Posten (Passiva):</p>
+            <p>1. <input type="text" class="freitext" placeholder="Posten 1"> Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+            <p>2. <input type="text" class="freitext" placeholder="Posten 2"> Veränderung: <input type="text" style="width: 100px;" placeholder="+/-"></p>
+        </div>
+        
+        <!-- Aufgabe 3 -->
+        <h2>Aufgabe 3: Bilanzsumme berechnen (6 Punkte)</h2>
+        
+        <div class="aufgabe">
+            <p><strong>Gegeben ist folgende Ausgangsbilanz:</strong></p>
+            
+            <table class="bilanz-table">
+                <thead>
+                    <tr>
+                        <th class="aktiva-header" colspan="2">AKTIVA</th>
+                        <th class="passiva-header" colspan="2">PASSIVA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maschinen</td>
+                        <td>100.000 €</td>
+                        <td>Stammkapital</td>
+                        <td>150.000 €</td>
+                    </tr>
+                    <tr>
+                        <td>Geschäftsausstattung</td>
+                        <td>20.000 €</td>
+                        <td>Gewinnrücklage</td>
+                        <td>30.000 €</td>
+                    </tr>
+                    <tr>
+                        <td>Vorräte</td>
+                        <td>50.000 €</td>
+                        <td>Bankkredit</td>
+                        <td>50.000 €</td>
+                    </tr>
+                    <tr>
+                        <td>Forderungen</td>
+                        <td>20.000 €</td>
+                        <td>Verbindlichkeiten</td>
+                        <td>40.000 €</td>
+                    </tr>
+                    <tr>
+                        <td>Bankguthaben</td>
+                        <td>80.000 €</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Kasse</td>
+                        <td>20.000 €</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="summe-row">
+                        <td><strong>Summe</strong></td>
+                        <td><strong>290.000 €</strong></td>
+                        <td><strong>Summe</strong></td>
+                        <td><strong>270.000 €</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Berechne die neue Bilanzsumme nach folgenden Geschäftsvorfällen:</strong></p>
+            
+            <h3>a) Maschinenkauf für 50.000 € in bar</h3>
+            <p>Art der Bilanzveränderung: <input type="text" class="freitext" placeholder="Typ eingeben"></p>
+            <p>Neue Bilanzsumme: <input type="text" class="freitext" placeholder="Betrag eingeben"></p>
+            
+            <h3>b) Wareneinkauf auf Rechnung: 40.000 €</h3>
+            <p>Art der Bilanzveränderung: <input type="text" class="freitext" placeholder="Typ eingeben"></p>
+            <p>Neue Bilanzsumme: <input type="text" class="freitext" placeholder="Betrag eingeben"></p>
+            
+            <h3>c) Kredittilgung bar: 30.000 €</h3>
+            <p>Art der Bilanzveränderung: <input type="text" class="freitext" placeholder="Typ eingeben"></p>
+            <p>Neue Bilanzsumme: <input type="text" class="freitext" placeholder="Betrag eingeben"></p>
+        </div>
+        
+        <!-- Aufgabe 4 -->
+        <h2>Aufgabe 4: Bilanz nach Geschäftsvorfällen (10 Punkte)</h2>
+        
+        <div class="aufgabe">
+            <p><strong>Erstelle die Schlussbilanz nach folgenden Geschäftsvorfällen (nutze die Ausgangsbilanz aus Aufgabe 3):</strong></p>
+            <ol>
+                <li>Kauf von Vorräten bar: 15.000 €</li>
+                <li>Kunde zahlt Rechnung: 20.000 €</li>
+                <li>Gesellschafter zahlt Stammkapital ein: 50.000 €</li>
+            </ol>
+            
+            <table class="bilanz-table" style="margin-top: 1.5rem;">
+                <thead>
+                    <tr>
+                        <th class="aktiva-header" colspan="2">AKTIVA</th>
+                        <th class="passiva-header" colspan="2">PASSIVA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maschinen</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td>Stammkapital</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Geschäftsausstattung</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td>Gewinnrücklage</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Vorräte</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td>Bankkredit</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Forderungen</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td>Verbindlichkeiten</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Bankguthaben</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Kasse</td>
+                        <td><input type="text" style="width: 100%;"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="summe-row">
+                        <td><strong>Summe</strong></td>
+                        <td><input type="text" style="width: 100%; font-weight: bold;"></td>
+                        <td><strong>Summe</strong></td>
+                        <td><input type="text" style="width: 100%; font-weight: bold;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Aufgabe 5 -->
+        <h2>Aufgabe 5: Transferaufgabe (10 Punkte)</h2>
+        
+        <div class="aufgabe">
+            <p><strong>Erkläre in eigenen Worten, warum bei einem <span style="color: #3b82f6;">Aktiv-Tausch</span> die Bilanzsumme gleich bleibt, während sie bei einer <span style="color: #22c55e;">Bilanzverlängerung</span> steigt.</strong></p>
+            
+            <textarea class="textarea-large" placeholder="Deine Erklärung hier..."></textarea>
+        </div>
+        
+        <!-- Bewertung -->
+        <div class="bewertung">
+            <h2 style="margin-top: 0; border: none;">Bewertung</h2>
+            <div class="bewertung-grid">
+                <div class="bewertung-item">
+                    <label>Punkte:</label>
+                    <input type="text" placeholder="___ / 50">
+                </div>
+                <div class="bewertung-item">
+                    <label>Note:</label>
+                    <input type="text" placeholder="____">
+                </div>
+                <div class="bewertung-item">
+                    <label>Datum:</label>
+                    <input type="date">
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #e5e7eb; color: #6b7280;">
+            <p><strong>💻 Interaktives Lernspiel nutzen:</strong> <a href="http://localhost:5173" style="color: #3b82f6;">http://localhost:5173</a></p>
+        </div>
+    </div>
+</body>
+</html>

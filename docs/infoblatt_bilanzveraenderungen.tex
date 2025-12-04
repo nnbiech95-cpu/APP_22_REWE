@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+
+\definecolor{aktivblau}{RGB}{59, 130, 246}
+\definecolor{passivlila}{RGB}{168, 85, 247}
+\definecolor{gruen}{RGB}{34, 197, 94}
+\definecolor{rot}{RGB}{239, 68, 68}
+
+\title{\textbf{Die 4 Arten von Bilanzveränderungen}}
+\author{Infoblatt für Berufsschüler}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Was ist eine Bilanzveränderung?}
+
+Jeder Geschäftsvorfall in einem Unternehmen verändert die Bilanz. Die Bilanz besteht aus zwei Seiten:
+\begin{itemize}
+    \item \textcolor{aktivblau}{\textbf{AKTIVA}} (linke Seite): Zeigt, \textit{wie} das Kapital im Unternehmen verwendet wird (Vermögen)
+    \item \textcolor{passivlila}{\textbf{PASSIVA}} (rechte Seite): Zeigt, \textit{woher} das Kapital stammt (Kapitalquellen)
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Grundregel:} Aktiva = Passiva (Die Bilanz ist immer ausgeglichen!)
+
+\vspace{1cm}
+
+\section*{Die 4 Arten von Bilanzveränderungen}
+
+\subsection*{1. \textcolor{aktivblau}{Aktiv-Tausch} \hfill ↔️}
+
+\begin{tcolorbox}[colback=blue!5,colframe=aktivblau,title=Definition]
+\textbf{Nur die Aktiv-Seite verändert sich}\\
+Ein Aktivposten steigt (+), ein anderer sinkt (-)\\
+\textbf{Bilanzsumme bleibt gleich}
+\end{tcolorbox}
+
+\textbf{Beispiele:}
+\begin{itemize}
+    \item Maschinenkauf bar (50.000 €): \textcolor{gruen}{+Maschinen}, \textcolor{rot}{-Bank}
+    \item Kunde zahlt Rechnung (20.000 €): \textcolor{gruen}{+Bank}, \textcolor{rot}{-Forderungen}
+    \item Geld von Bank abheben (10.000 €): \textcolor{gruen}{+Kasse}, \textcolor{rot}{-Bank}
+\end{itemize}
+
+\textbf{Merkregel:} \textit{„Tausch auf der Haben-Seite"} – nur Vermögenswerte tauschen sich aus
+
+\vspace{1cm}
+
+\subsection*{2. \textcolor{passivlila}{Passiv-Tausch} \hfill ↔️}
+
+\begin{tcolorbox}[colback=purple!5,colframe=passivlila,title=Definition]
+\textbf{Nur die Passiv-Seite verändert sich}\\
+Ein Passivposten steigt (+), ein anderer sinkt (-)\\
+\textbf{Bilanzsumme bleibt gleich}
+\end{tcolorbox}
+
+\textbf{Beispiele:}
+\begin{itemize}
+    \item Gewinn in Rücklage einstellen (30.000 €): \textcolor{gruen}{+Gewinnrücklage}, \textcolor{rot}{-Jahresüberschuss}
+    \item Kredit umschulden (25.000 €): \textcolor{gruen}{+Bankkredit}, \textcolor{rot}{-Verbindlichkeiten}
+    \item Rücklage auflösen (10.000 €): \textcolor{gruen}{+Stammkapital}, \textcolor{rot}{-Gewinnrücklage}
+\end{itemize}
+
+\textbf{Merkregel:} \textit{„Tausch auf der Soll-Seite"} – nur Kapitalquellen tauschen sich aus
+
+\vspace{1cm}
+
+\subsection*{3. \textcolor{gruen}{Bilanzverlängerung} (Aktiv-Passiv-Mehrung) \hfill 📈}
+
+\begin{tcolorbox}[colback=green!5,colframe=gruen,title=Definition]
+\textbf{Beide Seiten steigen gleichzeitig}\\
+Aktiva steigt (+) UND Passiva steigt (+)\\
+\textbf{Bilanzsumme steigt}
+\end{tcolorbox}
+
+\textbf{Beispiele:}
+\begin{itemize}
+    \item Wareneinkauf auf Rechnung (40.000 €): \textcolor{gruen}{+Vorräte (A)}, \textcolor{gruen}{+Verbindlichkeiten (P)}
+    \item Maschinenkauf mit Kredit (60.000 €): \textcolor{gruen}{+Maschinen (A)}, \textcolor{gruen}{+Bankkredit (P)}
+    \item Kapitaleinlage (50.000 €): \textcolor{gruen}{+Bank (A)}, \textcolor{gruen}{+Stammkapital (P)}
+\end{itemize}
+
+\textbf{Merkregel:} \textit{„Bilanz wird länger"} – beide Seiten wachsen
+
+\vspace{1cm}
+
+\subsection*{4. \textcolor{rot}{Bilanzverkürzung} (Aktiv-Passiv-Minderung) \hfill 📉}
+
+\begin{tcolorbox}[colback=red!5,colframe=rot,title=Definition]
+\textbf{Beide Seiten sinken gleichzeitig}\\
+Aktiva sinkt (-) UND Passiva sinkt (-)\\
+\textbf{Bilanzsumme sinkt}
+\end{tcolorbox}
+
+\textbf{Beispiele:}
+\begin{itemize}
+    \item Kredittilgung bar (30.000 €): \textcolor{rot}{-Bank (A)}, \textcolor{rot}{-Bankkredit (P)}
+    \item Rechnung bar bezahlen (25.000 €): \textcolor{rot}{-Kasse (A)}, \textcolor{rot}{-Verbindlichkeiten (P)}
+    \item Privatentnahme (10.000 €): \textcolor{rot}{-Kasse (A)}, \textcolor{rot}{-Eigenkapital (P)}
+\end{itemize}
+
+\textbf{Merkregel:} \textit{„Bilanz wird kürzer"} – beide Seiten schrumpfen
+
+\vspace{1cm}
+
+\section*{Übersicht: Die 4 Typen auf einen Blick}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Typ} & \textbf{Aktiva} & \textbf{Passiva} & \textbf{Bilanzsumme} \\
+\hline\hline
+Aktiv-Tausch & {\color{gruen}+} {\color{rot}-} & --- & = \\
+\hline
+Passiv-Tausch & --- & {\color{gruen}+} {\color{rot}-} & = \\
+\hline
+Bilanzverlängerung & {\color{gruen}+} & {\color{gruen}+} & {\color{gruen}↑} \\
+\hline
+Bilanzverkürzung & {\color{rot}-} & {\color{rot}-} & {\color{rot}↓} \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\section*{Wichtige Hinweise}
+
+\begin{itemize}
+    \item \textbf{Doppelte Buchführung:} Jeder Geschäftsvorfall berührt \underline{mindestens 2 Bilanzposten}
+    \item \textbf{Bilanzgleichung:} Aktiva = Passiva gilt \underline{immer} (auch nach Veränderungen!)
+    \item \textbf{Keine Mischformen:} Jeder Geschäftsvorfall gehört zu genau einem der 4 Typen
+    \item \textbf{Reihenfolge in der Bilanz:} 
+    \begin{itemize}
+        \item Aktiva: Nach \textit{Liquidität} (von schwer zu leicht liquidierbar)
+        \item Passiva: Nach \textit{Fälligkeit} (von langfristig zu kurzfristig)
+    \end{itemize}
+\end{itemize}
+
+\vspace{1cm}
+
+\section*{Praxis-Tipp}
+
+Um den Typ einer Bilanzveränderung zu bestimmen, frage dich:
+
+\begin{enumerate}
+    \item Welche Bilanzseite(n) sind betroffen? (Aktiva, Passiva, beide?)
+    \item Steigen oder sinken die Posten? (+/-)
+    \item Verändert sich die Bilanzsumme?
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\textbf{Beispiel:} „Wir kaufen eine Maschine für 50.000 € und bezahlen bar"
+
+\begin{itemize}
+    \item Betroffen: Maschinen (A) und Kasse (A) → nur Aktiva
+    \item Maschinen steigen (+50.000 €), Kasse sinkt (-50.000 €)
+    \item Bilanzsumme bleibt gleich
+    \item \textbf{→ Aktiv-Tausch!}
+\end{itemize}
+
+\end{document}

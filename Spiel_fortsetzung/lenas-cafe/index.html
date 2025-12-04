@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenas Café - Bilanzveränderungen erleben</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>☕ Lenas Café "Kaffeeglück"</h1>
+            <p class="subtitle">Erlebe die 4 Bilanzveränderungen in einer interaktiven Geschichte</p>
+        </header>
+
+        <!-- Fortschrittsanzeige -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text">Geschäftsvorfall <span id="currentStep">0</span> von 8</p>
+        </div>
+
+        <!-- Story Container -->
+        <div class="story-container" id="storyContainer">
+            <!-- Initial State -->
+            <div class="story-section active" id="section0">
+                <div class="story-content">
+                    <h2>🎯 Willkommen!</h2>
+                    <p class="intro-text">Lena eröffnet ihr Traum-Café "Kaffeeglück". Begleite sie durch die ersten Tage und beobachte, wie sich ihre Bilanz verändert!</p>
+                    
+                    <div class="start-bilanz">
+                        <h3>📊 Startbilanz</h3>
+                        <p>Lena hat 50.000 € auf ihrem Geschäftskonto gespart. Damit kann sie starten!</p>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="nextStep()">Los geht's! →</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 1: Espressomaschine -->
+            <div class="story-section" id="section1">
+                <div class="day-badge">Tag 1 - Montag, 9:00 Uhr</div>
+                <div class="story-content">
+                    <h2>🛒 Geschäftsvorfall 1: Espressomaschine kaufen</h2>
+                    <p class="story-text">Lena kauft eine professionelle Espressomaschine für <strong>8.000 €</strong>. Sie überweist das Geld vom Geschäftskonto.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(1, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(1, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(1, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(1, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback1"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(1)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 2: Kredit -->
+            <div class="story-section" id="section2">
+                <div class="day-badge">Tag 1 - Montag, 14:00 Uhr</div>
+                <div class="story-content">
+                    <h2>💰 Geschäftsvorfall 2: Kredit aufnehmen</h2>
+                    <p class="story-text">Lena braucht mehr Geld für die Renovierung. Die Bank gibt ihr einen Kredit über <strong>30.000 €</strong>. Das Geld wird auf ihr Geschäftskonto überwiesen.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(2, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(2, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(2, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(2, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback2"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(2)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 3: Kaffeebohnen -->
+            <div class="story-section" id="section3">
+                <div class="day-badge">Tag 2 - Dienstag, 10:00 Uhr</div>
+                <div class="story-content">
+                    <h2>☕ Geschäftsvorfall 3: Kaffeebohnen auf Rechnung</h2>
+                    <p class="story-text">Lena bestellt hochwertige Kaffeebohnen für <strong>5.000 €</strong>. Der Lieferant gibt ihr ein Zahlungsziel von 30 Tagen – sie muss jetzt noch nicht bezahlen.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(3, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(3, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(3, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(3, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback3"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(3)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 4: Rechnung bezahlen -->
+            <div class="story-section" id="section4">
+                <div class="day-badge">Tag 2 - Dienstag, 15:00 Uhr</div>
+                <div class="story-content">
+                    <h2>💸 Geschäftsvorfall 4: Rechnung bezahlen</h2>
+                    <p class="story-text">Lena hat Geld übrig und beschließt, die Rechnung für die Kaffeebohnen (<strong>5.000 €</strong>) sofort zu bezahlen, statt 30 Tage zu warten.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(4, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(4, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(4, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(4, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback4"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(4)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 5: Kredit zurückzahlen -->
+            <div class="story-section" id="section5">
+                <div class="day-badge">Tag 3 - Mittwoch, 11:00 Uhr</div>
+                <div class="story-content">
+                    <h2>🏦 Geschäftsvorfall 5: Kredit teilweise zurückzahlen</h2>
+                    <p class="story-text">Lena überweist <strong>10.000 €</strong> von ihrem Geschäftskonto, um einen Teil des Kredits zurückzuzahlen.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(5, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(5, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(5, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(5, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback5"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(5)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 6: Neuer Lieferant -->
+            <div class="story-section" id="section6">
+                <div class="day-badge">Tag 3 - Mittwoch, 16:00 Uhr</div>
+                <div class="story-content">
+                    <h2>📦 Geschäftsvorfall 6: Neuer Lieferant</h2>
+                    <p class="story-text">Lena wechselt zu einem günstigeren Lieferanten für Milch und Zucker. Sie bestellt Waren für <strong>2.000 €</strong> auf Rechnung (Zahlungsziel: 14 Tage).</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(6, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(6, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(6, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(6, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback6"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(6)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 7: Mobiliar -->
+            <div class="story-section" id="section7">
+                <div class="day-badge">Tag 4 - Donnerstag, 10:00 Uhr</div>
+                <div class="story-content">
+                    <h2>🪑 Geschäftsvorfall 7: Mobiliar umtauschen</h2>
+                    <p class="story-text">Lena hat Stühle für <strong>3.000 €</strong> gekauft, aber sie passen nicht zum Stil. Der Händler nimmt sie zurück und Lena kauft stattdessen andere Möbel für 3.000 €.</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(7, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(7, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(7, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(7, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback7"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(7)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Geschäftsvorfall 8: Umschuldung -->
+            <div class="story-section" id="section8">
+                <div class="day-badge">Tag 4 - Donnerstag, 14:00 Uhr</div>
+                <div class="story-content">
+                    <h2>🔄 Geschäftsvorfall 8: Umschuldung</h2>
+                    <p class="story-text">Lena verhandelt mit ihrer Bank. Sie wandelt <strong>5.000 €</strong> vom kurzfristigen Bankkredit in langfristige Verbindlichkeiten um (bessere Konditionen).</p>
+                    
+                    <div class="question-box">
+                        <p class="question">❓ Welche Art von Bilanzveränderung liegt vor?</p>
+                        <div class="answer-buttons">
+                            <button class="btn-answer" onclick="checkAnswer(8, 'aktiv')">🔄 Aktiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(8, 'passiv')">🔄 Passiv-Tausch</button>
+                            <button class="btn-answer" onclick="checkAnswer(8, 'verlaengerung')">📈 Bilanzverlängerung</button>
+                            <button class="btn-answer" onclick="checkAnswer(8, 'verkuerzung')">📉 Bilanzverkürzung</button>
+                        </div>
+                        <div class="feedback" id="feedback8"></div>
+                    </div>
+                    
+                    <button class="btn-show-bilanz" onclick="showBilanz(8)">📊 Bilanz anzeigen</button>
+                </div>
+            </div>
+
+            <!-- Ende / Zusammenfassung -->
+            <div class="story-section" id="section9">
+                <div class="story-content">
+                    <h2>🎉 Geschafft!</h2>
+                    <p class="intro-text">Du hast alle 8 Geschäftsvorfälle durchgespielt und die 4 Bilanzveränderungen kennengelernt!</p>
+                    
+                    <div class="summary-box">
+                        <h3>📊 Zusammenfassung</h3>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <div class="summary-icon">🔄</div>
+                                <h4>Aktiv-Tausch</h4>
+                                <p>GV 1, GV 7</p>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-icon">🔄</div>
+                                <h4>Passiv-Tausch</h4>
+                                <p>GV 8</p>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-icon">📈</div>
+                                <h4>Bilanzverlängerung</h4>
+                                <p>GV 2, GV 3, GV 6</p>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-icon">📉</div>
+                                <h4>Bilanzverkürzung</h4>
+                                <p>GV 4, GV 5</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="final-score" id="finalScore"></div>
+                    
+                    <button class="btn-primary" onclick="restart()">🔄 Noch einmal spielen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bilanz Modal -->
+        <div class="modal" id="bilanzModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeBilanz()">&times;</span>
+                <h2>📊 Geschäftsvorfall <span id="modalStep"></span></h2>
+                
+                <div class="bilanz-explanation" id="bilanzExplanation"></div>
+                
+                <div class="bilanz-container">
+                    <div class="bilanz-side aktiva">
+                        <h3>AKTIVA (Vermögen)</h3>
+                        <div class="bilanz-items" id="aktivaItems"></div>
+                        <div class="bilanz-total">
+                            <strong>Summe:</strong> <span id="aktivaTotal"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bilanz-side passiva">
+                        <h3>PASSIVA (Kapital)</h3>
+                        <div class="bilanz-items" id="passivaItems"></div>
+                        <div class="bilanz-total">
+                            <strong>Summe:</strong> <span id="passivaTotal"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary" onclick="nextStepFromBilanz()">Weiter →</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="btn-nav" id="prevBtn" onclick="prevStep()" disabled>← Zurück</button>
+            <button class="btn-nav" id="nextBtn" onclick="nextStep()" disabled>Weiter →</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
